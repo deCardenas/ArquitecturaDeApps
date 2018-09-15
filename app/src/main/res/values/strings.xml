@@ -3,4 +3,7 @@
     <string name="first_name">Name</string>
     <string name="last_name">Last name</string>
     <string name="login">Login</string>
+    <string name="error_user_unavailable">Error. User is unavailable</string>
+    <string name="error_user_input">Error. First name and last name are required and cannot be empty</string>
+    <string name="user_saved">User saved</string>
 </resources>
