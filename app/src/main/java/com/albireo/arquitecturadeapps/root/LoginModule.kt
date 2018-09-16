@@ -10,7 +10,12 @@ import dagger.Provides
 
 @Module
 class LoginModule {
-    @Provides fun providePresenter(model: LoginMVP.Model) : LoginMVP.Presenter = LoginPresenter(model)
-    @Provides fun provideModel(repo: LoginRepo) : LoginMVP.Model = LoginModel(repo)
-    @Provides fun provideLoginRepo(): LoginRepo = MemoryRepo()
+    @Provides
+    fun providePresenter(model: LoginMVP.Model): LoginMVP.Presenter = LoginPresenter(model)
+
+    @Provides
+    fun provideModel(repo: LoginRepo): LoginMVP.Model = LoginModel(repo)
+
+    @Provides
+    fun provideLoginRepo(): LoginRepo = MemoryRepo()
 }
