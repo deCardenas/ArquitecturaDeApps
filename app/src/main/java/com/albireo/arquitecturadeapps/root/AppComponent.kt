@@ -5,7 +5,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AppModule::class, LoginModule::class])
+@Component(modules = [AppModule::class, LoginModule::class, TwitchModule::class])
 interface AppComponent {
     fun inject(target: LoginActivity)
 }

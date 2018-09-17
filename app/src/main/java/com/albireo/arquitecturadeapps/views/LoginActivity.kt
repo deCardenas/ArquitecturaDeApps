@@ -4,15 +4,23 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.albireo.arquitecturadeapps.R
+import com.albireo.arquitecturadeapps.api.TwitchAPI
 import com.albireo.arquitecturadeapps.mvp.LoginMVP
 import com.albireo.arquitecturadeapps.root.App
+import com.albireo.arquitecturadeapps.service.data.Twitch
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() , LoginMVP.View {
 
     @Inject
     lateinit var presenter: LoginMVP.Presenter
+
+    @Inject
+    lateinit var twitchAPI: TwitchAPI
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +31,21 @@ class LoginActivity : AppCompatActivity() , LoginMVP.View {
         btnLogin.setOnClickListener {
             presenter.loginClicked()
         }
+
+        //Example: Using Twitch API with retrofit
+        val call = twitchAPI.getTopGames("6nuayzqgonb2g15l48g1g17x06hzyd",40)
+        call.enqueue(object : Callback<Twitch>{
+            override fun onFailure(call: Call<Twitch>, t: Throwable) {
+                t.printStackTrace()
+            }
+
+            override fun onResponse(call: Call<Twitch>, response: Response<Twitch>) {
+                val topGames = response.body()!!.data
+                for (game in topGames){
+                    System.out.println(game.name)
+                }
+            }
+        })
     }
 
     override fun onResume() {
