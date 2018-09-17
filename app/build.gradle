@@ -42,6 +42,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     //Logging HTTP
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    //RxKotlin
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
     //Unit Test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

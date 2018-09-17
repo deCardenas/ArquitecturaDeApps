@@ -51,6 +51,7 @@ class LoginActivity : AppCompatActivity() , LoginMVP.View {
     override fun onResume() {
         super.onResume()
         presenter.setView(this)
+        presenter.getCurrentUser()
     }
 
     override fun getFirstName(): String = edtFirstName.text.toString()
