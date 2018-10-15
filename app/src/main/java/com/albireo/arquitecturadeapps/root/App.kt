@@ -1,15 +1,13 @@
 package com.albireo.arquitecturadeapps.root
 
 import android.app.Application
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-class App : Application(){
-    private lateinit var component : AppComponent
-
-    override fun onCreate() {
-        super.onCreate()
-        //build the project and then initialize the component
-        component = DaggerAppComponent.builder().build()
+class App : DaggerApplication(){
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        val component = DaggerAppComponent.builder().application(this).build()
+        component.inject(this)
+        return component
     }
-
-    fun getComponent() : AppComponent = component
 }

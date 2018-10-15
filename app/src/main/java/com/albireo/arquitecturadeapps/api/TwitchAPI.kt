@@ -1,6 +1,7 @@
 package com.albireo.arquitecturadeapps.api
 
 import com.albireo.arquitecturadeapps.service.data.Twitch
+import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -12,4 +13,7 @@ interface TwitchAPI {
 
     @GET("users")
     fun getUsers(): Call<Twitch>
+
+    @GET("games/top")
+    fun getTopGamesObservable(@Header("Client-ID")clientId: String) : Observable<Twitch>
 }
