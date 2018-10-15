@@ -6,11 +6,9 @@ import android.widget.Toast
 import com.albireo.arquitecturadeapps.R
 import com.albireo.arquitecturadeapps.api.TwitchAPI
 import com.albireo.arquitecturadeapps.mvp.LoginMVP
-import com.albireo.arquitecturadeapps.root.App
 import com.albireo.arquitecturadeapps.service.data.Game
 import com.albireo.arquitecturadeapps.service.data.Twitch
 import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers

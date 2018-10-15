@@ -1,5 +1,6 @@
-package com.albireo.arquitecturadeapps.root
+package com.albireo.myapplication
 
+import com.albireo.myapplication.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

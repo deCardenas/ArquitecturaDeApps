@@ -1,4 +1,4 @@
-package com.albireo.arquitecturadeapps.root
+package com.albireo.myapplication.di
 
 import android.app.Application
 import android.content.Context
